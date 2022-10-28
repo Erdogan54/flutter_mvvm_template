@@ -3,11 +3,11 @@ import 'dart:ui';
 class LanguageManager {
   static LanguageManager? _instance;
   static LanguageManager get instance {
-    _instance ??= LanguageManager._init();
+    _instance ??= LanguageManager._();
     return _instance!;
   }
 
-  LanguageManager._init();
+  LanguageManager._();
 
   final enLocale = const Locale("en", "US");
   final trLocale = const Locale("tr", "TR");

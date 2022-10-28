@@ -35,7 +35,7 @@ class _TestView2State extends State<TestView2> {
       title: Observer(builder: (_) {
         return Text(viewModel.isEven.toString().locale);
       }),
-      actions: [iconButtonChangeTheme()],
+      actions: [iconButtonChangeTheme(), IconButton(onPressed: () {}, icon: const Icon(Icons.swipe_down_rounded))],
     );
   }
 
