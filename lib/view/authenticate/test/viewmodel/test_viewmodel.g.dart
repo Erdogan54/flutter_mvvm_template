@@ -47,6 +47,17 @@ mixin _$TestViewModel on _TestViewModelBase, Store {
   }
 
   @override
+  dynamic changeLangugae(BuildContext context) {
+    final _$actionInfo = _$_TestViewModelBaseActionController.startAction(
+        name: '_TestViewModelBase.changeLangugae');
+    try {
+      return super.changeLangugae(context);
+    } finally {
+      _$_TestViewModelBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 number: ${number},

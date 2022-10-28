@@ -1,5 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:flutter_mvvm_template/core/components/text/locale_text.dart';
+import 'package:flutter_mvvm_template/core/extension/string_extension.dart';
+import 'package:flutter_mvvm_template/core/init/lang/language_manager.dart';
+import 'package:flutter_mvvm_template/core/init/lang/locale_keys.g.dart';
 
 import '../viewmodel/test_viewmodel.dart';
 
@@ -26,15 +31,34 @@ class _TestView2State extends State<TestView2> {
   }
 
   AppBar get appBar {
-    return AppBar(title: Observer(builder: (_) {
-      return Text(viewModel.isEven.toString());
-    }));
+    return AppBar(
+      title: Observer(builder: (_) {
+        return Text(viewModel.isEven.toString().locale);
+      }),
+      actions: [iconButtonChangeTheme()],
+    );
+  }
+
+  IconButton iconButtonChangeTheme() {
+    return IconButton(
+        onPressed: () {
+          viewModel.changeLangugae(context);
+        },
+        icon: const Icon(Icons.change_history));
   }
 
   Widget get textNumber {
     return Center(
       child: Observer(builder: (_) {
-        return Text(viewModel.number.toString());
+        return Column(
+          children: [
+            Text(LocaleKeys.welcome.locale),
+            Text(LocaleKeys.help.locale),
+            LocaleText(value: LocaleKeys.good),
+            LocaleText(value: LocaleKeys.bad),
+            Text(viewModel.number.toString()),
+          ],
+        );
       }),
     );
   }
