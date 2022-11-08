@@ -60,15 +60,21 @@ class _TestView2State extends State<TestView2> {
   }
 
   Widget get textNumber {
+    final List<Widget> widgetList = [
+      Text(LocaleKeys.welcome.locale),
+      Text(LocaleKeys.help.locale),
+      LocaleText(value: LocaleKeys.good),
+      LocaleText(value: LocaleKeys.bad),
+      Text(viewModel.number.toString()),
+    ];
     return Center(
       child: Observer(builder: (_) {
         return Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text(LocaleKeys.welcome.locale),
-            Text(LocaleKeys.help.locale),
-            LocaleText(value: LocaleKeys.good),
-            LocaleText(value: LocaleKeys.bad),
-            Text(viewModel.number.toString()),
+            ...widgetList,
+            mailField,
           ],
         );
       }),
@@ -77,4 +83,10 @@ class _TestView2State extends State<TestView2> {
 
   FloatingActionButton get floatingActionButtonNumberIncrement =>
       FloatingActionButton(onPressed: () => viewModel.incrementNumber());
+}
+
+extension FieldMail on _TestView2State {
+  TextFormField get mailField => TextFormField(
+        validator: (value) => value?.isValidEmail,
+      );
 }
