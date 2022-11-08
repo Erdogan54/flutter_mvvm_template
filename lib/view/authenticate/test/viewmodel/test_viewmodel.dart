@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_mvvm_template/core/base/model/base_view_model.dart';
 import 'package:flutter_mvvm_template/core/constants/enums/app_theme_enum.dart';
 import 'package:flutter_mvvm_template/core/init/notifier/theme_notifier.dart';
 import 'package:mobx/mobx.dart';
@@ -13,12 +14,12 @@ part 'test_viewmodel.g.dart';
 
 class TestViewModel = _TestViewModelBase with _$TestViewModel;
 
-abstract class _TestViewModelBase with Store {
-  late BuildContext myContext;
+abstract class _TestViewModelBase with Store, BaseViewModel {
+  @override
+  void setContext(BuildContext context) => baseContext = context;
 
-  setContext(BuildContext context) {
-    myContext = context;
-  }
+  @override
+  void init() {}
 
   @observable
   bool isLoading = false;
@@ -45,15 +46,15 @@ abstract class _TestViewModelBase with Store {
 
   @action
   changeTheme() {
-    if (Provider.of<ThemeNotifier>(myContext, listen: false).currentTheme == ThemeData.dark()) {
-      Provider.of<ThemeNotifier>(myContext, listen: false).changeValue(AppThemes.LIGHT);
+    if (Provider.of<ThemeNotifier>(baseContext, listen: false).currentTheme == ThemeData.dark()) {
+      Provider.of<ThemeNotifier>(baseContext, listen: false).changeValue(AppThemes.LIGHT);
     } else {
-      Provider.of<ThemeNotifier>(myContext, listen: false).changeValue(AppThemes.DARK);
+      Provider.of<ThemeNotifier>(baseContext, listen: false).changeValue(AppThemes.DARK);
     }
   }
 
   @action
- Future<void> getSampleRequest() async {
+  Future<void> getSampleRequest() async {
     isLoading = true;
     await NetworkManager.instance.dioGet<TestModel>("x", TestModel());
     isLoading = false;

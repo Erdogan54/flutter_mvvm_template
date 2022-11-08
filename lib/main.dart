@@ -10,6 +10,7 @@ import 'package:provider/provider.dart';
 
 import 'core/init/navigation/navigation_service.dart';
 import 'core/init/notifier/theme_notifier.dart';
+import 'view/authenticate/test/view/test_view.dart';
 
 //import '../locale_keys.g.dart';
 void main() async {

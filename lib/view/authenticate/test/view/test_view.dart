@@ -17,10 +17,11 @@ class _TestViewState extends BaseState<TestView> {
   Widget build(BuildContext context) {
     return BaseView<TestViewModel>(
       viewmodel: TestViewModel(),
-      onPageBuilder: (context, value) => scaffolBuild,
       onModelReady: (model) {
+        model.setContext(context);
         viewModel = model;
       },
+      onPageBuilder: (BuildContext context, TestViewModel viewModel) => scaffolBuild,
     );
   }
 
@@ -42,5 +43,3 @@ class _TestViewState extends BaseState<TestView> {
   FloatingActionButton get floatingActionButtonNumberIncrement =>
       FloatingActionButton(onPressed: () => viewModel.incrementNumber());
 }
-
-
