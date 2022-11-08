@@ -7,6 +7,8 @@ import 'package:mobx/mobx.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../core/init/lang/language_manager.dart';
+import '../../../../core/init/network/network_manager.dart';
+import '../model/test_model.dart';
 part 'test_viewmodel.g.dart';
 
 class TestViewModel = _TestViewModelBase with _$TestViewModel;
@@ -17,6 +19,9 @@ abstract class _TestViewModelBase with Store {
   setContext(BuildContext context) {
     myContext = context;
   }
+
+  @observable
+  bool isLoading = false;
 
   @observable
   int number = 1;
@@ -45,5 +50,12 @@ abstract class _TestViewModelBase with Store {
     } else {
       Provider.of<ThemeNotifier>(myContext, listen: false).changeValue(AppThemes.DARK);
     }
+  }
+
+  @action
+ Future<void> getSampleRequest() async {
+    isLoading = true;
+    await NetworkManager.instance.dioGet<TestModel>("x", TestModel());
+    isLoading = false;
   }
 }
