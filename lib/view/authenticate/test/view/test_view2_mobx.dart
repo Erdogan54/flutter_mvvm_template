@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_mvvm_template/core/components/text/locale_text.dart';
 import 'package:flutter_mvvm_template/core/constants/enums/app_theme_enum.dart';
+import 'package:flutter_mvvm_template/core/constants/enums/locale_keys_enum.dart';
 import 'package:flutter_mvvm_template/core/extension/string_extension.dart';
+import 'package:flutter_mvvm_template/core/init/cache/locale_manager.dart';
 import 'package:flutter_mvvm_template/core/init/lang/language_manager.dart';
 import 'package:flutter_mvvm_template/core/init/lang/locale_keys.g.dart';
 
@@ -33,6 +35,7 @@ class _TestView2State extends State<TestView2> {
 
   AppBar get appBar {
     return AppBar(
+      leading: Text(LocaleManager.instance.getStringValue(PreferencesKeys.TOKEN)),
       title: Observer(builder: (_) {
         return Text(viewModel.isEven.toString().locale);
       }),
