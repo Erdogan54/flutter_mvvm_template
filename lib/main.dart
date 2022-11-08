@@ -2,11 +2,12 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mvvm_template/core/constants/app/app_constants.dart';
 import 'package:flutter_mvvm_template/core/init/lang/language_manager.dart';
+import 'package:flutter_mvvm_template/core/init/navigation/navigation_route.dart';
 import 'package:flutter_mvvm_template/core/init/notifier/provider_list.dart';
 import 'package:flutter_mvvm_template/view/authenticate/test/view/test_view2_mobx.dart';
 import 'package:provider/provider.dart';
 
-
+import 'core/init/navigation/navigation_service.dart';
 import 'core/init/notifier/theme_notifier.dart';
 
 //import '../locale_keys.g.dart';
@@ -40,6 +41,8 @@ class MyApp extends StatelessWidget {
           locale: context.locale,
           title: 'Material App',
           theme: context.watch<ThemeNotifier>().currentTheme,
+          navigatorKey: NavigationService.instance.navigatorKey,
+          onGenerateRoute: NavigationRoute.instance.generateRoute,
           home: const TestView2(),
         );
       }),
