@@ -6,6 +6,7 @@ import 'package:flutter_mvvm_template/core/init/notifier/provider_list.dart';
 import 'package:flutter_mvvm_template/view/authenticate/test/view/test_view2_mobx.dart';
 import 'package:provider/provider.dart';
 
+
 import 'core/init/notifier/theme_notifier.dart';
 
 //import '../locale_keys.g.dart';
@@ -28,16 +29,20 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ...ApplicationProvider.instance.dependItems,
+        //...ApplicationProvider.instance.dependItems,
+        ChangeNotifierProvider(create: (_) => ThemeNotifier())
       ],
-      child: MaterialApp(
-        localizationsDelegates: context.localizationDelegates,
-        supportedLocales: context.supportedLocales,
-        locale: context.locale,
-        title: 'Material App',
-        theme: Provider.of<ThemeNotifier>(context,listen: true).currentTheme,
-        home: const TestView2(),
-      ),
+      child: Builder(builder: (context) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          localizationsDelegates: context.localizationDelegates,
+          supportedLocales: context.supportedLocales,
+          locale: context.locale,
+          title: 'Material App',
+          theme: context.watch<ThemeNotifier>().currentTheme,
+          home: const TestView2(),
+        );
+      }),
     );
   }
 }

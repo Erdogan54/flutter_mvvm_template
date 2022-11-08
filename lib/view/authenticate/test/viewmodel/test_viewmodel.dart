@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_mvvm_template/core/constants/enums/app_theme_enum.dart';
 import 'package:flutter_mvvm_template/core/init/notifier/theme_notifier.dart';
 import 'package:mobx/mobx.dart';
@@ -38,7 +39,11 @@ abstract class _TestViewModelBase with Store {
   }
 
   @action
-  changeTheme(AppThemes theme) {
-    Provider.of<ThemeNotifier>(myContext).changeValue(theme);
+  changeTheme() {
+    if (Provider.of<ThemeNotifier>(myContext, listen: false).currentTheme == ThemeData.dark()) {
+      Provider.of<ThemeNotifier>(myContext, listen: false).changeValue(AppThemes.LIGHT);
+    } else {
+      Provider.of<ThemeNotifier>(myContext, listen: false).changeValue(AppThemes.DARK);
+    }
   }
 }
