@@ -1,14 +1,15 @@
-import 'package:easy_localization/easy_localization.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_mvvm_template/core/components/text/locale_text.dart';
-import 'package:flutter_mvvm_template/core/constants/enums/app_theme_enum.dart';
+
 import 'package:flutter_mvvm_template/core/constants/enums/locale_keys_enum.dart';
 import 'package:flutter_mvvm_template/core/extension/string_extension.dart';
 import 'package:flutter_mvvm_template/core/init/cache/locale_manager.dart';
-import 'package:flutter_mvvm_template/core/init/lang/language_manager.dart';
+
 import 'package:flutter_mvvm_template/core/init/lang/locale_keys.g.dart';
 
+import '../../../../core/extension/context_extension.dart';
 import '../viewmodel/test_viewmodel.dart';
 
 class TestView2 extends StatefulWidget {
@@ -29,7 +30,7 @@ class _TestView2State extends State<TestView2> {
     return Scaffold(
       appBar: appBar,
       floatingActionButton: floatingActionButtonNumberIncrement,
-      body: textNumber,
+      body: textNumber(context),
     );
   }
 
@@ -59,7 +60,7 @@ class _TestView2State extends State<TestView2> {
         icon: const Icon(Icons.change_history));
   }
 
-  Widget get textNumber {
+  Widget textNumber(BuildContext context) {
     final List<Widget> widgetList = [
       Text(LocaleKeys.welcome.locale),
       Text(LocaleKeys.help.locale),
@@ -68,13 +69,19 @@ class _TestView2State extends State<TestView2> {
       Text(viewModel.number.toString()),
     ];
     return Center(
-      child: Observer(builder: (_) {
+      child: Observer(builder: (context) {
         return Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             ...widgetList,
             mailField,
+            Container(
+              padding: context.paddingLow,
+              height: context.height * 0.4,
+              color: context.colorScheme.onPrimary,
+            ),
+            Text("Hello",style: Theme.of(context).textTheme.headline1?.copyWith(color: Theme.of(context).primaryColor),)
           ],
         );
       }),
