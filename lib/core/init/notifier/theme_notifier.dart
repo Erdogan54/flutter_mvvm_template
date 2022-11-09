@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mvvm_template/core/init/theme/app_theme_dark.dart';
 import 'package:flutter_mvvm_template/core/init/theme/app_theme_light.dart';
 
 import '../../constants/enums/app_theme_enum.dart';
@@ -9,9 +10,9 @@ class ThemeNotifier extends ChangeNotifier {
 
   changeValue(AppThemes theme) {
     if (theme == AppThemes.LIGHT) {
-      _currentTheme = ThemeData.light();
+      _currentTheme = AppThemeLight.instance.theme;
     } else {
-      _currentTheme = ThemeData.dark();
+      _currentTheme = AppThemeDark.instance.theme;
     }
     notifyListeners();
   }

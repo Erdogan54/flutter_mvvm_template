@@ -16,7 +16,10 @@ class AppThemeLight extends AppTheme {
   // ThemeData get theme => redTheme;
 
   @override
-  ThemeData get theme => ThemeData.light().copyWith(colorScheme: _appColorScheme());
+  ThemeData get theme => ThemeData.light().copyWith(
+        colorScheme: _appColorScheme(),
+        textTheme: _textTheme(),
+      );
 
   ColorScheme _appColorScheme() {
     return const ColorScheme(
@@ -31,5 +34,12 @@ class AppThemeLight extends AppTheme {
         onBackground: Colors.orangeAccent,
         surface: Colors.teal,
         onSurface: Colors.tealAccent);
+  }
+
+  TextTheme _textTheme() {
+    return const TextTheme(
+      headline1: TextStyle(fontSize: 96, fontWeight: FontWeight.w300, letterSpacing: -1.5),
+      headline2: TextStyle(fontSize: 60, fontWeight: FontWeight.w300, letterSpacing: -0.5),
+    );
   }
 }

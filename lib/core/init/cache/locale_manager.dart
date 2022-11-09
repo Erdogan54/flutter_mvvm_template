@@ -15,11 +15,7 @@ class LocaleManager {
   static LocaleManager get instance => _instance;
 
   static preferencesInit() async {
-    // ignore: prefer_conditional_assignment, unnecessary_null_comparison
-    if (_instance._pref == null) {
-      _instance._pref = await SharedPreferences.getInstance();
-    }
-    return;
+    return _instance._pref ??= await SharedPreferences.getInstance();
   }
 
   Future<void> setStringValue(PreferencesKeys key, String value) async {

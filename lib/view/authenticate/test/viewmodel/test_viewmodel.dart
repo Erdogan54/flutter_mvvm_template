@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mvvm_template/core/base/model/base_view_model.dart';
 import 'package:flutter_mvvm_template/core/constants/enums/app_theme_enum.dart';
 import 'package:flutter_mvvm_template/core/init/notifier/theme_notifier.dart';
+import 'package:flutter_mvvm_template/core/init/theme/app_theme_dark.dart';
+import 'package:flutter_mvvm_template/core/init/theme/app_theme_light.dart';
 import 'package:mobx/mobx.dart';
 import 'package:provider/provider.dart';
 
@@ -46,7 +48,7 @@ abstract class _TestViewModelBase with Store, BaseViewModel {
 
   @action
   changeTheme() {
-    if (Provider.of<ThemeNotifier>(baseContext, listen: false).currentTheme == ThemeData.dark()) {
+    if (Provider.of<ThemeNotifier>(baseContext, listen: false).currentTheme == AppThemeDark.instance.theme) {
       Provider.of<ThemeNotifier>(baseContext, listen: false).changeValue(AppThemes.LIGHT);
     } else {
       Provider.of<ThemeNotifier>(baseContext, listen: false).changeValue(AppThemes.DARK);
