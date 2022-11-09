@@ -1,6 +1,6 @@
 class ImageConstants {
   ImageConstants._();
-  static ImageConstants _instance = ImageConstants._();
+  static final ImageConstants _instance = ImageConstants._();
   static ImageConstants instance = _instance;
 
   String get logo => toPng("veli");

@@ -1,8 +1,5 @@
-import 'dart:convert';
 
 import 'package:json_annotation/json_annotation.dart';
-import 'package:json_serializable/builder.dart';
-
 import '../../../../core/base/model/base_model.dart';
 
 part 'test_model.g.dart';

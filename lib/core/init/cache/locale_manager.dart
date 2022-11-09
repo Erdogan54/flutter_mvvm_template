@@ -3,7 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../constants/enums/locale_keys_enum.dart';
 
 class LocaleManager {
-  late SharedPreferences _pref;
+  SharedPreferences? _pref;
 
   LocaleManager._() {
     SharedPreferences.getInstance().then((value) {
@@ -23,8 +23,8 @@ class LocaleManager {
   }
 
   Future<void> setStringValue(PreferencesKeys key, String value) async {
-    await _pref.setString(key.name, value);
+    await _pref?.setString(key.name, value);
   }
 
-  String getStringValue(PreferencesKeys key) => _pref.getString(key.name) ?? "null";
+  String getStringValue(PreferencesKeys key) => _pref?.getString(key.name) ?? "null";
 }

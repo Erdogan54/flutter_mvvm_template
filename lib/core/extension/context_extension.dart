@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 extension ContextExtension on BuildContext {
   MediaQueryData get mediaQuery => MediaQuery.of(this);
@@ -18,7 +17,7 @@ extension MediaQueryExtension on BuildContext {
 extension ThemeExtension on BuildContext {
   ThemeData get theme => Theme.of(this);
   TextTheme get textTheme => theme.textTheme;
-  ColorScheme get colors => theme.colorScheme;
+  ColorScheme get colorScheme => theme.colorScheme;
 }
 
 extension PaddingExtension on BuildContext {
@@ -26,5 +25,4 @@ extension PaddingExtension on BuildContext {
   EdgeInsets get paddingNormal => EdgeInsets.all(normalHeightValue);
   EdgeInsets get paddingMedium => EdgeInsets.all(mediumHeightValue);
   EdgeInsets get paddingHigh => EdgeInsets.all(highHeightValue);
-
 }

@@ -10,14 +10,13 @@ import 'package:provider/provider.dart';
 
 import 'core/init/navigation/navigation_service.dart';
 import 'core/init/notifier/theme_notifier.dart';
-import 'view/authenticate/test/view/test_view.dart';
 
 //import '../locale_keys.g.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
 
-  LocaleManager.preferencesInit();
+  await LocaleManager.preferencesInit();
 
   runApp(
     MultiProvider(
@@ -43,7 +42,7 @@ class MyApp extends StatelessWidget {
       supportedLocales: context.supportedLocales,
       locale: context.locale,
       title: 'Material App',
-      theme: context.watch<ThemeNotifier>().currentTheme,
+      theme: Provider.of<ThemeNotifier>(context).currentTheme,
       navigatorKey: NavigationService.instance.navigatorKey,
       onGenerateRoute: NavigationRoute.instance.generateRoute,
       home: const TestView2(),

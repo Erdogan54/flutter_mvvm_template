@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter_mvvm_template/core/init/theme/app_theme.dart';
 import 'package:flutter_mvvm_template/core/init/theme/app_theme_light.dart';
 
 import '../../constants/enums/app_theme_enum.dart';
