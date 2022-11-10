@@ -1,10 +1,9 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
+import 'package:flutter_mvvm_template/core/constants/app/app_constants.dart';
 import 'package:flutter_mvvm_template/core/init/theme/app_theme.dart';
-import 'package:flutter_mvvm_template/core/init/theme/panachi/red_theme.dart';
+import 'package:flutter_mvvm_template/core/init/theme/light/light_theme_interface.dart';
 
-class AppThemeLight extends AppTheme {
+class AppThemeLight extends AppTheme with ILightTheme {
   static AppThemeLight? _instance;
   static AppThemeLight get instance {
     return _instance ??= AppThemeLight._();
@@ -16,30 +15,39 @@ class AppThemeLight extends AppTheme {
   // ThemeData get theme => redTheme;
 
   @override
-  ThemeData get theme => ThemeData.light().copyWith(
+  ThemeData get theme => ThemeData(
         colorScheme: _appColorScheme(),
         textTheme: _textTheme(),
+        fontFamily: ApplicationConstants.FONT_FAMILY,
+        floatingActionButtonTheme: ThemeData.light().floatingActionButtonTheme.copyWith(),
+        tabBarTheme: _tabbarTheme(),
       );
 
-  ColorScheme _appColorScheme() {
-    return const ColorScheme(
-        brightness: Brightness.light,
-        primary: Colors.red,
-        onPrimary: Colors.redAccent,
-        secondary: Colors.green,
-        onSecondary: Colors.greenAccent,
-        error: Colors.red,
-        onError: Colors.redAccent,
-        background: Colors.orange,
-        onBackground: Colors.orangeAccent,
-        surface: Colors.teal,
-        onSurface: Colors.tealAccent);
-  }
+  TabBarTheme _tabbarTheme() => TabBarTheme(
+        unselectedLabelStyle: textThemeLight.headline2.copyWith(color: colorSchemeLight.azure),
+        labelPadding: paddingInsets.mediumPaddingAll,
+      );
 
   TextTheme _textTheme() {
-    return const TextTheme(
-      headline1: TextStyle(fontSize: 96, fontWeight: FontWeight.w300, letterSpacing: -1.5),
-      headline2: TextStyle(fontSize: 60, fontWeight: FontWeight.w300, letterSpacing: -0.5),
+    return TextTheme(
+      headline1: textThemeLight.headline1,
+      headline2: textThemeLight.headline2,
+    );
+  }
+
+  ColorScheme _appColorScheme() {
+    return ColorScheme(
+      brightness: Brightness.light,
+      primary: colorSchemeLight.azure,
+      onPrimary: colorSchemeLight.black,
+      secondary: colorSchemeLight.brown,
+      onSecondary: colorSchemeLight.darkGray,
+      error: colorSchemeLight.gray,
+      onError: colorSchemeLight.lightGray,
+      background: colorSchemeLight.red,
+      onBackground: colorSchemeLight.white,
+      surface: colorSchemeLight.azure,
+      onSurface: colorSchemeLight.black,
     );
   }
 }

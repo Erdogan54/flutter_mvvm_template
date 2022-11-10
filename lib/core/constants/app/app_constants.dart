@@ -3,4 +3,5 @@ class ApplicationConstants {
   static const IPAD_NAME = "IPAD";
   static const COMPANY_NAME = 'Ozgur';
   static const EMAIL_REGEX = r'\b[A-Z0-9._%+-]+@[A-Z0-9.-]\b' ;
+  static const FONT_FAMILY = 'Poppins' ;
 }
