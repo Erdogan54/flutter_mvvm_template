@@ -3,6 +3,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mvvm_template/core/base/model/base_view_model.dart';
 import 'package:flutter_mvvm_template/core/constants/enums/app_theme_enum.dart';
+import 'package:flutter_mvvm_template/core/constants/enums/http_request_enum.dart';
 import 'package:flutter_mvvm_template/core/init/notifier/theme_notifier.dart';
 import 'package:flutter_mvvm_template/core/init/theme/app_theme_dark.dart';
 import 'package:flutter_mvvm_template/core/init/theme/app_theme_light.dart';
@@ -58,7 +59,11 @@ abstract class _TestViewModelBase with Store, BaseViewModel {
   @action
   Future<void> getSampleRequest() async {
     isLoading = true;
-    await NetworkManager.instance.dioGet<TestModel>("x", TestModel());
+    final result = await coreDio.myFetch<List<TestModel>,TestModel>("path", type: HttpTypes.GET, parseModel: TestModel());
+    if(result is List<TestModel>){
+
+    }
+    // await NetworkManager.instance.dioGet<TestModel>("x", TestModel());
     isLoading = false;
   }
 }
