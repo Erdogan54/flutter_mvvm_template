@@ -17,9 +17,9 @@ class _TestViewState extends BaseState<TestView> {
   Widget build(BuildContext context) {
     return BaseView<TestViewModel>(
       viewmodel: TestViewModel(),
-      onModelReady: (model) {
-        model.setContext(context);
-        viewModel = model;
+      onModelReady: (vwModel) {
+        vwModel.setContext(context);
+        viewModel = vwModel;
       },
       onPageBuilder: (BuildContext context, TestViewModel viewModel) => scaffolBuild,
     );
