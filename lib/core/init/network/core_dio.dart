@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_mvvm_template/core/base/model/base_error.dart';
 import 'package:flutter_mvvm_template/core/base/model/base_model.dart';
@@ -13,8 +14,11 @@ part "../network/network_core/core_operations.dart";
 
 class CoreDio with DioMixin implements Dio, ICoreDio {
   final BaseOptions baseOptions;
+
   CoreDio(this.baseOptions) {
     options = baseOptions;
+    httpClientAdapter = DefaultHttpClientAdapter();
+    interceptors.add(InterceptorsWrapper());
   }
 
   @override
@@ -27,11 +31,12 @@ class CoreDio with DioMixin implements Dio, ICoreDio {
     Options? options,
     void Function(int p1, int p2)? onReceiveProgress,
   }) async {
+    
     final response = await request(path, data: data, options: Options(method: type.rawValue));
     switch (response.statusCode) {
       case HttpStatus.ok:
         final data = response.data;
-        final model = _responseParser<R>(parseModel, data);
+        final model = _responseParser<R,T>(parseModel, data);
         return ResponseModel<R>(data: model);
       default:
         return ResponseModel(error: BaseError("message"));

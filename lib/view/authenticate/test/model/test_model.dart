@@ -24,7 +24,7 @@ class TestModel extends BaseModel {
   }
 
   @override
-  fromJson(Map<String, Object> json) {
+  fromJson(Map<String, dynamic> json) {
     return _$TestModelFromJson(json);
   }
 }
