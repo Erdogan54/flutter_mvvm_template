@@ -19,7 +19,7 @@ class TestViewModel = _TestViewModelBase with _$TestViewModel;
 
 abstract class _TestViewModelBase with Store, BaseViewModel {
   @override
-  void setContext(BuildContext context) => baseContext = context;
+  void setContext(BuildContext context) => contextMy = context;
 
   @override
   void init() {}
@@ -49,20 +49,19 @@ abstract class _TestViewModelBase with Store, BaseViewModel {
 
   @action
   changeTheme() {
-    if (Provider.of<ThemeNotifier>(baseContext, listen: false).currentTheme == AppThemeDark.instance.theme) {
-      Provider.of<ThemeNotifier>(baseContext, listen: false).changeValue(AppThemes.LIGHT);
+    if (Provider.of<ThemeNotifier>(contextMy, listen: false).currentTheme == AppThemeDark.instance.theme) {
+      Provider.of<ThemeNotifier>(contextMy, listen: false).changeValue(AppThemes.LIGHT);
     } else {
-      Provider.of<ThemeNotifier>(baseContext, listen: false).changeValue(AppThemes.DARK);
+      Provider.of<ThemeNotifier>(contextMy, listen: false).changeValue(AppThemes.DARK);
     }
   }
 
   @action
   Future<void> getSampleRequest() async {
     isLoading = true;
-    final result = await coreDio.myFetch<List<TestModel>,TestModel>("path", type: HttpTypes.GET, parseModel: TestModel());
-    if(result is List<TestModel>){
-
-    }
+    final result =
+        await coreDio?.myFetch<List<TestModel>, TestModel>("path", type: HttpTypes.GET, parseModel: TestModel());
+    if (result is List<TestModel>) {}
     // await NetworkManager.instance.dioGet<TestModel>("x", TestModel());
     isLoading = false;
   }

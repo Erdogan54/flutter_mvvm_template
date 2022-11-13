@@ -6,13 +6,10 @@ part 'login_view_model.g.dart';
 // ignore: library_private_types_in_public_api
 class LoginViewModel = _LoginViewModelBase with _$LoginViewModel;
 
-abstract class _LoginViewModelBase with Store,BaseViewModel {
+abstract class _LoginViewModelBase with Store, BaseViewModel {
+  @override
+  void setContext(BuildContext context) => contextMy = context;
 
   @override
-  void setContext(BuildContext context) => baseContext = context;
-  
-  @override
   void init() {}
-  
-  
 }
