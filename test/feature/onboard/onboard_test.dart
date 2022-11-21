@@ -23,9 +23,28 @@ void main() {
     expect(mockViewModel!.onBoardModels, isList);
   });
 
-  test("OnBord isLoading", () async {
+  test("OnBord Get Service Request", () async {
     expect(mockViewModel!.isLoading, false);
-    // await mockViewModel!.onBoardGetModels().;
-    expect(mockViewModel!.isLoading, false);
+    mockViewModel!.getServiceRequest();
+    expect(mockViewModel!.isLoading, true);
+  });
+
+  test("OnBord On Page Changed", () async {
+    mockViewModel!.onPageChanged(5);
+    expect(mockViewModel!.currentPageIndex, 5);
+  });
+
+  group("Test All", () {
+    int? index = 0;
+
+    test("OnBord Get Model", () async {
+      await mockViewModel!.onBoardGetModels();
+      index = mockViewModel?.onBoardModels?.length;
+      expect(mockViewModel!.onBoardModels, isList);
+    });
+    test("OnBord On Page Changed", () async {
+      mockViewModel!.onPageChanged(index ?? 0);
+      expect(index, mockViewModel?.currentPageIndex);
+    });
   });
 }
