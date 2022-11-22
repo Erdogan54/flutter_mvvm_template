@@ -15,4 +15,6 @@ class ColorSchemeLight {
   final Color darkGray = const Color(0xff676870);
   final Color black = const Color(0xff020306);
   final Color azure = const Color(0xff27928d);
+
+  final Color color1 = const Color(0xff1c6460);
 }

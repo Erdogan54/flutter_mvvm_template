@@ -7,6 +7,14 @@ class TextThemeLight {
     return _instance ??= TextThemeLight._();
   }
 
-  final TextStyle headline1 = const TextStyle(fontSize: 96, fontWeight: FontWeight.w300, letterSpacing: -1.5);
-  final TextStyle headline2 = const TextStyle(fontSize: 60, fontWeight: FontWeight.w300, letterSpacing: -0.5);
+  final TextStyle headline1 = const TextStyle(
+    fontSize: 96,
+    fontWeight: FontWeight.w300,
+    letterSpacing: -1.5,
+  );
+  final TextStyle headline2 = const TextStyle(
+    fontSize: 60,
+    fontWeight: FontWeight.w300,
+    letterSpacing: -0.5,
+  );
 }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
-import '../../../core/components/list-view/indicator_listview.dart';
+import '../../../../core/components/list-view/indicator_listview.dart';
 
 class OnBoardIndicator extends StatelessWidget {
   final int? itemCount;

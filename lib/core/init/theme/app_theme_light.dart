@@ -16,7 +16,7 @@ class AppThemeLight extends AppTheme with ILightTheme {
 
   @override
   ThemeData get theme => ThemeData(
-        colorScheme: _appColorScheme(),
+        colorScheme: _appColorScheme,
         textTheme: _textTheme(),
         fontFamily: ApplicationConstants.FONT_FAMILY,
         floatingActionButtonTheme: ThemeData.light().floatingActionButtonTheme.copyWith(),
@@ -35,19 +35,19 @@ class AppThemeLight extends AppTheme with ILightTheme {
     );
   }
 
-  ColorScheme _appColorScheme() {
+  ColorScheme get _appColorScheme {
     return ColorScheme(
+      primary: Colors.white, //xx
+      onPrimary: Colors.greenAccent,
+      secondary: colorSchemeLight.color1, // xx floating button background default bunu kullanıyor
+      onSecondary: Colors.black, //xx
+      error: Colors.orange,
+      onError: Colors.red,
+      background: Colors.white,
+      onBackground: Colors.black12,
+      surface: Colors.blue,
+      onSurface: Colors.white30,
       brightness: Brightness.light,
-      primary: colorSchemeLight.azure,
-      onPrimary: colorSchemeLight.black,
-      secondary: colorSchemeLight.brown,
-      onSecondary: colorSchemeLight.darkGray,
-      error: colorSchemeLight.gray,
-      onError: colorSchemeLight.lightGray,
-      background: colorSchemeLight.red,
-      onBackground: colorSchemeLight.white,
-      surface: colorSchemeLight.azure,
-      onSurface: colorSchemeLight.black,
     );
   }
 }

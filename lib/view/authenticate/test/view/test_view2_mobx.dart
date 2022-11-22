@@ -79,7 +79,7 @@ class _TestView2State extends State<TestView2> {
             Container(
               padding: context.paddingLow,
               height: context.height * 0.4,
-              color: context.colorScheme.onPrimary,
+              color: context.colors.onPrimary,
             ),
             Text("Hello",style: Theme.of(context).textTheme.headline1?.copyWith(color: Theme.of(context).primaryColor),)
           ],

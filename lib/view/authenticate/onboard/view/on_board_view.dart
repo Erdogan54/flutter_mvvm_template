@@ -1,26 +1,19 @@
-import 'dart:math';
-
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:flutter_mvvm_template/core/components/list-view/indicator_listview.dart';
-import 'package:flutter_mvvm_template/view/widgets/list-view/on_board_indicator.dart';
+import 'package:flutter_mvvm_template/view/_product/_constants/image_path_svg.dart';
+import 'package:flutter_mvvm_template/view/_product/_widgets/avatar/on_board_circle.dart';
+import 'package:flutter_mvvm_template/view/authenticate/onboard/model/on_board_model.dart';
+import 'package:flutter_mvvm_template/view/authenticate/onboard/view-model/on_board_viewmodel.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../core/base/view/base_view.dart';
-import '../../../../core/components/colum/form_colum.dart';
+import '../../../../core/components/text/auto_locale_text.dart';
 import '../../../../core/extension/context_extension.dart';
-import '../view-model/on_board_view-model.dart';
 
-class OnBoardView extends StatefulWidget {
+class OnBoardView extends StatelessWidget {
   const OnBoardView({super.key});
 
-  @override
-  State<OnBoardView> createState() => _OnBoardViewState();
-}
-
-class _OnBoardViewState extends State<OnBoardView> {
-  late OnBoardViewModel viewModel;
   @override
   Widget build(BuildContext context) {
     return BaseView<OnBoardViewModel>(
@@ -28,49 +21,111 @@ class _OnBoardViewState extends State<OnBoardView> {
       onModelReady: (model) {
         model.setContext(context);
         model.init();
-        viewModel = model;
       },
-      onPageBuilder: (BuildContext context, OnBoardViewModel viewModel) => Scaffold(
-        body: buildColumnBody(),
+      onPageBuilder: (BuildContext context, OnBoardViewModel viewModel) => scaffoldBuild(context, viewModel),
+    );
+  }
+
+  Scaffold scaffoldBuild(BuildContext context, OnBoardViewModel viewModel) {
+    return Scaffold(
+      body: Padding(
+        padding: context.paddingNormalHorizontal,
+        child: Column(children: [
+          const Spacer(flex: 1),
+          Expanded(flex: 5, child: buildPageView(viewModel)),
+          Expanded(flex: 2, child: buildRowFooter(viewModel, context)),
+        ]),
       ),
     );
   }
 
-  Column buildColumnBody() {
-    return Column(
+  PageView buildPageView(OnBoardViewModel viewModel) {
+    return PageView.builder(
+      onPageChanged: (value) => viewModel.changeCurrentIndex(value),
+      itemCount: viewModel.onBoardItems.length,
+      itemBuilder: (context, index) {
+        return buildColmunBody(context, viewModel.onBoardItems[index]);
+      },
+    );
+  }
+
+  Row buildRowFooter(OnBoardViewModel viewModel, BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Expanded(
-          flex: 9,
-          child: buildPageView(),
-        ),
-        Expanded(flex: 1, child: buildObserverIndicator())
+        buildListViewCircle(viewModel),
+        Center(child: Observer(builder: (_) {
+          return Visibility(
+            visible: viewModel.isLoding,
+            child: CircularProgressIndicator(color: context.colors.secondary));
+        })),
+        buildFloatingActionButtonScipe(context,viewModel)
       ],
     );
   }
 
-  PageView buildPageView() {
-    return PageView.builder(
-      onPageChanged: (value) {
-        viewModel.onPageChanged(value);
-      },
-      itemCount: viewModel.onBoardModels?.length,
+  ListView buildListViewCircle(OnBoardViewModel viewModel) {
+    return ListView.builder(
+      scrollDirection: Axis.horizontal,
+      itemCount: viewModel.onBoardItems.length,
+      shrinkWrap: true,
       itemBuilder: (context, index) {
-        return Container(
-          color: context.randomColor,
-          child: FormColumn(
-            children: [const Placeholder(), Text("${viewModel.onBoardModels?[index].text}")],
-          ),
-        );
+        return Observer(builder: (context) {
+          return OnBoardCircle(isSelected: viewModel.currentIndex == index);
+        });
       },
     );
   }
 
-  Observer buildObserverIndicator() {
-    return Observer(builder: (_) {
-      return OnBoardIndicator(
-        itemCount: viewModel.onBoardModels?.length,
-        currentPageIndex: viewModel.currentPageIndex,
-      );
-    });
+  FloatingActionButton buildFloatingActionButtonScipe(BuildContext context,OnBoardViewModel viewModel) {
+    return FloatingActionButton(
+      child: Icon(
+        Icons.navigate_next_rounded,
+        size: 48,
+        color: context.colors.primary,
+      ),
+      onPressed: () => viewModel.complateToOnBoard(),
+    );
   }
+
+  Column buildColmunBody(BuildContext context, OnBoardModel model) {
+    return Column(
+      children: [
+        Expanded(child: buildSvgPicture(model)),
+        buildColumnDescription(context, model),
+      ],
+    );
+  }
+
+  Column buildColumnDescription(BuildContext context, OnBoardModel model) {
+    return Column(
+      children: [
+        buildAutoLocaleTextTitle(model, context),
+        Padding(
+          padding: context.paddingMediumHorizontal,
+          child: buildAutoLocaleTextDescription(model, context),
+        ),
+      ],
+    );
+  }
+
+  AutoLocaleText buildAutoLocaleTextDescription(OnBoardModel model, BuildContext context) {
+    return AutoLocaleText(
+      value: model.decription,
+      textAlign: TextAlign.center,
+      style: context.textTheme.subtitle1?.copyWith(fontWeight: FontWeight.w100),
+    );
+  }
+
+  AutoLocaleText buildAutoLocaleTextTitle(OnBoardModel model, BuildContext context) {
+    return AutoLocaleText(
+      value: model.title,
+      style: context.textTheme.headline3?.copyWith(
+        fontWeight: FontWeight.bold,
+        color: context.colors.onSecondary,
+      ),
+    );
+  }
+
+  SvgPicture buildSvgPicture(OnBoardModel model) => SvgPicture.asset(model.imagePath);
 }
