@@ -18,9 +18,19 @@ class LocaleManager {
     return _instance._pref ??= await SharedPreferences.getInstance();
   }
 
+  Future<void> clearAll() async {
+   await _pref?.clear();
+  }
+
   Future<void> setStringValue(PreferencesKeys key, String value) async {
     await _pref?.setString(key.name, value);
   }
 
+  Future<void> setBoolValue(PreferencesKeys key, bool value) async {
+    await _pref?.setBool(key.name, value);
+  }
+
   String getStringValue(PreferencesKeys key) => _pref?.getString(key.name) ?? "null";
+
+  bool getBoolValue(PreferencesKeys key) => _pref?.getBool(key.name) ?? false;
 }

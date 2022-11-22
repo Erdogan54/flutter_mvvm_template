@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mvvm_template/core/components/button/icon_button.dart';
 import 'package:flutter_mvvm_template/view/authenticate/login/view_model/login_view_model.dart';
-import 'package:flutter_mvvm_template/view/widgets/button/face_book_button.dart';
-import 'package:flutter_mvvm_template/view/widgets/button/login_button.dart';
+import 'package:flutter_mvvm_template/view/_product/_widgets/button/face_book_button.dart';
+import 'package:flutter_mvvm_template/view/_product/_widgets/button/login_button.dart';
 
 import '../../../../core/base/view/base_view.dart';
 import '../../../../core/extension/context_extension.dart';

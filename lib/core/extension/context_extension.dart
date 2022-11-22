@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_mvvm_template/core/init/theme/app_theme_light.dart';
 
 extension ContextExtension on BuildContext {
   MediaQueryData get mediaQuery => MediaQuery.of(this);
@@ -19,14 +20,27 @@ extension MediaQueryExtension on BuildContext {
 extension ThemeExtension on BuildContext {
   ThemeData get theme => Theme.of(this);
   TextTheme get textTheme => theme.textTheme;
-  ColorScheme get colorScheme => theme.colorScheme;
+  // ColorScheme get colorScheme => theme.colorScheme;
+  ColorScheme get colors => theme.colorScheme;
 }
 
-extension PaddingExtension on BuildContext {
+extension PaddingExtensionAll on BuildContext {
   EdgeInsets get paddingLow => EdgeInsets.all(lowHeightValue);
   EdgeInsets get paddingNormal => EdgeInsets.all(normalHeightValue);
   EdgeInsets get paddingMedium => EdgeInsets.all(mediumHeightValue);
   EdgeInsets get paddingHigh => EdgeInsets.all(highHeightValue);
+}
+
+extension PaddingExtensionSymetrich on BuildContext {
+  EdgeInsets get paddingLowVertical => EdgeInsets.symmetric(vertical: lowHeightValue);
+  EdgeInsets get paddingNormalVertical => EdgeInsets.symmetric(vertical: normalHeightValue);
+  EdgeInsets get paddingMediumVertical => EdgeInsets.symmetric(vertical: mediumHeightValue);
+  EdgeInsets get paddingHighVertical => EdgeInsets.symmetric(vertical: highHeightValue);
+
+  EdgeInsets get paddingLowHorizontal => EdgeInsets.symmetric(horizontal: lowHeightValue);
+  EdgeInsets get paddingNormalHorizontal => EdgeInsets.symmetric(horizontal: normalHeightValue);
+  EdgeInsets get paddingMediumHorizontal => EdgeInsets.symmetric(horizontal: mediumHeightValue);
+  EdgeInsets get paddingHighHorizontal => EdgeInsets.symmetric(horizontal: highHeightValue);
 }
 
 extension PageExtension on BuildContext {
