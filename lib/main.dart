@@ -47,7 +47,7 @@ class MyApp extends StatelessWidget {
       theme: Provider.of<ThemeNotifier>(context).currentTheme,
       navigatorKey: NavigationService.instance.navigatorKey,
       onGenerateRoute: NavigationRoute.instance.generateRoute,
-      home: const OnBoardView(),
+      home: const LoginView(),
     );
   }
 }

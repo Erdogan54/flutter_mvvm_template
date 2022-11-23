@@ -11,7 +11,7 @@ extension MediaQueryExtension on BuildContext {
   double get height => mediaQuery.size.height;
   double get width => mediaQuery.size.width;
 
-  double get lowHeightValue => height * 0.01;
+  double get lowHeightValue => height * 0.001;
   double get normalHeightValue => height * 0.02;
   double get mediumHeightValue => height * 0.04;
   double get highHeightValue => height * 0.1;
@@ -48,7 +48,7 @@ extension PageExtension on BuildContext {
 }
 
 extension DurationExtension on BuildContext {
-  Duration get durationLow => const Duration(milliseconds: 1);
+  Duration get durationLow => const Duration(seconds: 1);
   Duration get durationMedium => const Duration(milliseconds: 500);
   Duration get durationHigh => const Duration(milliseconds: 300);
 }
