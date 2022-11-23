@@ -16,5 +16,7 @@ class ColorSchemeLight {
   final Color black = const Color(0xff020306);
   final Color azure = const Color(0xff27928d);
 
-  final Color color1 = const Color(0xff1c6460);
+  final Color abduction = const Color(0xff1c6460);
+  final Color sunCreate = const Color(0xffff8c02);
+  final Color alpineGoat = const Color(0xfff0f0f8);
 }

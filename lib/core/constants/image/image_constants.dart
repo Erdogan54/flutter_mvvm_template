@@ -1,8 +1,12 @@
 class ImageConstants {
   ImageConstants._();
-  static final ImageConstants _instance = ImageConstants._();
-  static ImageConstants instance = _instance;
+  static ImageConstants? _instance;
+  static ImageConstants get instance {
+    return _instance ??= ImageConstants._();
+  }
 
   String get logo => toPng("veli");
-  String toPng(String name) => "asset/image/$name";
+  String get sosis => toPng("sosis");
+
+  String toPng(String name) => "asset/image/$name.PNG";
 }

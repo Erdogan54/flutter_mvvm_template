@@ -94,6 +94,6 @@ class _TestView2State extends State<TestView2> {
 
 extension FieldMail on _TestView2State {
   TextFormField get mailField => TextFormField(
-        validator: (value) => value?.isValidEmail,
+        validator: (value) => (value?.isValidEmail ?? false) ? null :"fasf kdgns",
       );
 }

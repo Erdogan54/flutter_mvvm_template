@@ -17,4 +17,26 @@ class TextThemeLight {
     fontWeight: FontWeight.w300,
     letterSpacing: -0.5,
   );
+
+  final TextStyle headline3 = const TextStyle(
+    fontSize: 48,
+    fontWeight: FontWeight.w400
+  );
+
+  final TextStyle headline4 = const TextStyle(
+    fontSize: 34,
+    fontWeight: FontWeight.w400,
+    letterSpacing: 0.25
+  );
+  final TextStyle headline5 = const TextStyle(
+    fontSize: 24,
+    fontWeight: FontWeight.w400
+  );
+  final TextStyle headline6 = const TextStyle(
+    fontSize: 20,
+    fontWeight: FontWeight.w500,
+    letterSpacing: 0.15
+  );
+ 
+
 }

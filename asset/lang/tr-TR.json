@@ -1,4 +1,21 @@
 {
+    "onBoard":{
+        "page1":{"title":"İyi Yap","desc": "Yalnız değilsiniz. Başka bir dünyaya gitmek için eşsiz bir yeteneğiniz var."},
+        "page2":{"title":"İyi Yap","desc": "Yalnız değilsiniz. Başka bir dünyaya gitmek için eşsiz bir yeteneğiniz var."},
+        "page3":{"title":"İyi Yap","desc": "Yalnız değilsiniz. Başka bir dünyaya gitmek için eşsiz bir yeteneğiniz var."}
+    },
+    "login":{
+        "tab1":"Giriş" , 
+        "tab2":"Kayıt",
+        "email":"Email",
+        "password":"Şifre",
+        "forgotText":"Şifreni mi unuttun ?",
+        "login":"giriş",
+        "dontAccount":"Zaten bir hesabın var mı?"
+    },
+
+
+
     "welcome":"Hoş geldiniz",
     "help":"yardım",
     "good":"iyi",
