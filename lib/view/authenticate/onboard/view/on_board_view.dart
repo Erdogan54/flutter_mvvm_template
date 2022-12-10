@@ -9,7 +9,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../core/base/view/base_view.dart';
 import '../../../../core/components/text/auto_locale_text.dart';
-import '../../../../core/extension/context_extension.dart';
+import '../../../../core/extension/context_extension_pro.dart';
 
 class OnBoardView extends StatelessWidget {
   const OnBoardView({super.key});

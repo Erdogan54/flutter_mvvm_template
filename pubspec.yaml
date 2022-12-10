@@ -51,6 +51,7 @@ dependencies:
   auto_size_text: ^3.0.0
   email_validator: ^2.1.17
   vexana: ^3.0.1
+  kartal: ^2.5.1
 
 
 dev_dependencies:

@@ -7,7 +7,7 @@ import 'package:flutter_mvvm_template/core/init/lang/locale_keys.g.dart';
 import 'package:flutter_mvvm_template/view/authenticate/login/view_model/login_view_model.dart';
 
 import '../../../../core/base/view/base_view.dart';
-import '../../../../core/extension/context_extension.dart';
+import '../../../../core/extension/context_extension_pro.dart';
 import '../../../../core/extension/string_extension.dart';
 
 class LoginView extends StatelessWidget {

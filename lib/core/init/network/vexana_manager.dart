@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:vexana/vexana.dart';
 
 class VexanaManager {
@@ -7,6 +9,10 @@ class VexanaManager {
     return _instance ??= VexanaManager._();
   }
 
-  INetworkManager networkManager =
-      NetworkManager(isEnableLogger: true, options: BaseOptions(baseUrl: "https://jsonplaceholder.typicode.com/"));
+  final String _iosBaseUrl = "https://localhost:3000/";
+  final String _androidBaseUrl = "https://10.0.2.2:3000/";
+
+  INetworkManager networkManager = NetworkManager(
+      isEnableLogger: true,
+      options: BaseOptions(baseUrl: Platform.isAndroid ? "https://10.0.2.2:3000/" : "https://localhost:3000/"));
 }

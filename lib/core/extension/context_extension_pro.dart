@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_mvvm_template/core/init/theme/app_theme_light.dart';
 
-extension ContextExtension on BuildContext {
+extension ContextExtensionPro on BuildContext {
   MediaQueryData get mediaQuery => MediaQuery.of(this);
 }
 

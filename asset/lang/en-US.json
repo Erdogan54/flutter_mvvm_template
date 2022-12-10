@@ -1,9 +1,15 @@
 {
     "welcome":"Welcome to My App",
     "onBoard":{
-        "page1":{"title":"Make It Good","desc": "You are not alone. You have unique ability to go to another world."},
-        "page2":{"title":"Make It Good","desc": "You are not alone. You have unique ability to go to another world."},
-        "page3":{"title":"Make It Good","desc": "You are not alone. You have unique ability to go to another world."}
+        "page1":{
+            "title":"Make It Good",
+            "desc": "You are not alone. You have unique ability to go to another world."},
+        "page2":{
+            "title":"Make It Good",
+            "desc": "You are not alone. You have unique ability to go to another world."},
+        "page3":{
+            "title":"Make It Good",
+            "desc": "You are not alone. You have unique ability to go to another world."}
     },
     "login":{
         "tab1":"Login" , 
@@ -14,11 +20,23 @@
         "login":"Login",
         "dontAccount":"Dont have account"
     },
+    "home":{
+        "build":{
+            "tabbar":{
+                "tab1":"Latest",
+                "tab2":"Decorative",
+                "tab3":"Music",
+                "tab4":"Style"
+            }
+        },
+        "subtitle":"Recommended"
+    
+    },
 
 
 
 
-
+    
     "help":"help",
     "good":"good",
     "bad":"bad"
