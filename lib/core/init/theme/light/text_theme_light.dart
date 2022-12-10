@@ -18,25 +18,10 @@ class TextThemeLight {
     letterSpacing: -0.5,
   );
 
-  final TextStyle headline3 = const TextStyle(
-    fontSize: 48,
-    fontWeight: FontWeight.w400
-  );
+  final TextStyle headline3 = const TextStyle(fontSize: 48, fontWeight: FontWeight.w400);
 
-  final TextStyle headline4 = const TextStyle(
-    fontSize: 34,
-    fontWeight: FontWeight.w400,
-    letterSpacing: 0.25
-  );
-  final TextStyle headline5 = const TextStyle(
-    fontSize: 24,
-    fontWeight: FontWeight.w400
-  );
-  final TextStyle headline6 = const TextStyle(
-    fontSize: 20,
-    fontWeight: FontWeight.w500,
-    letterSpacing: 0.15
-  );
- 
-
+  final TextStyle headline4 = const TextStyle(fontSize: 34, fontWeight: FontWeight.w400, letterSpacing: 0.25);
+  final TextStyle headline5 = const TextStyle(fontSize: 24, fontWeight: FontWeight.w400);
+  final TextStyle headline6 = const TextStyle(fontSize: 18, fontWeight: FontWeight.w500, letterSpacing: 0.15);
+  final TextStyle headline7 = const TextStyle(fontSize: 14, fontWeight: FontWeight.w500, letterSpacing: 0.10);
 }

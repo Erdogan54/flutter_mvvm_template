@@ -9,7 +9,7 @@ import 'package:flutter_mvvm_template/core/init/cache/locale_manager.dart';
 
 import 'package:flutter_mvvm_template/core/init/lang/locale_keys.g.dart';
 
-import '../../../../core/extension/context_extension.dart';
+import '../../../../core/extension/context_extension_pro.dart';
 import '../viewmodel/test_viewmodel.dart';
 
 class TestView2 extends StatefulWidget {

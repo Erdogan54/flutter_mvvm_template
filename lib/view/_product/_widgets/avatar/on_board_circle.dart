@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter_mvvm_template/core/extension/context_extension.dart';
+import 'package:flutter_mvvm_template/core/extension/context_extension_pro.dart';
 
 class OnBoardCircle extends StatelessWidget {
   final bool isSelected;

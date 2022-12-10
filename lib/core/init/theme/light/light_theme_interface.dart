@@ -3,7 +3,7 @@ import 'package:flutter_mvvm_template/core/init/theme/light/padding_insets.dart'
 import 'package:flutter_mvvm_template/core/init/theme/light/text_theme_light.dart';
 
 abstract class ILightTheme {
-  TextThemeLight textThemeLight = TextThemeLight.instance;
-  ColorSchemeLight colorSchemeLight = ColorSchemeLight.instance;
+  TextThemeLight textThemeLightCustom = TextThemeLight.instance;
+  ColorSchemeLight colorSchemeLightCustom = ColorSchemeLight.instance;
   PaddingInsets paddingInsets = PaddingInsets();
 }

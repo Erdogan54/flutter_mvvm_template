@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_mvvm_template/core/constants/app/app_constants.dart';
-import 'package:flutter_mvvm_template/core/extension/context_extension.dart';
+import 'package:flutter_mvvm_template/core/extension/context_extension_pro.dart';
 import 'package:flutter_mvvm_template/core/init/theme/app_theme.dart';
 import 'package:flutter_mvvm_template/core/init/theme/light/light_theme_interface.dart';
 
@@ -22,16 +23,18 @@ class AppThemeLight extends AppTheme with ILightTheme {
       //brightness: Brightness.light,
       //colorScheme: ColorScheme.fromSeed(seedColor: Colors.red, primary: Colors.teal, secondary: Colors.green,),
       //useMaterial3: false,
-
+      appBarTheme: ThemeData.light().appBarTheme.copyWith(
+          systemOverlayStyle: SystemUiOverlayStyle.dark, iconTheme: IconThemeData(color: Colors.black87, size: 25)),
       inputDecorationTheme: _inputDecorationTheme(),
       textTheme: _textTheme(),
       fontFamily: ApplicationConstants.FONT_FAMILY,
       floatingActionButtonTheme: ThemeData.light().floatingActionButtonTheme.copyWith(),
-      tabBarTheme: _tabbarTheme(),
-      scaffoldBackgroundColor: colorSchemeLight.alpineGoat,
+      tabBarTheme: _tabbarTheme,
+      scaffoldBackgroundColor: colorSchemeLightCustom.alpineGoat,
       indicatorColor: _appColorScheme.primary);
 
   InputDecorationTheme _inputDecorationTheme() {
+    //
     return InputDecorationTheme(
         enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: _appColorScheme.primary)),
         // focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: _appColorScheme.primary)),
@@ -39,27 +42,34 @@ class AppThemeLight extends AppTheme with ILightTheme {
         focusColor: Colors.cyan);
   }
 
-  TabBarTheme _tabbarTheme() => TabBarTheme(
-        unselectedLabelStyle: textThemeLight.headline5,
-        labelStyle: textThemeLight.headline6,
-        labelPadding: paddingInsets.mediumPaddingAll,
-        labelColor: Colors.black,
+  TabBarTheme get _tabbarTheme => TabBarTheme(
+        // labelPadding: paddingInsets.mediumPaddingAll,
+        labelColor: _appColorScheme.onPrimary,
+        labelStyle: textThemeLightCustom.headline5,
+
+        unselectedLabelStyle: textThemeLightCustom.headline6,
+        unselectedLabelColor: _appColorScheme.onPrimary.withOpacity(0.2),
         indicatorSize: TabBarIndicatorSize.label,
       );
 
   TextTheme _textTheme() {
-    return TextTheme(
-      headline1: textThemeLight.headline1,
-      headline2: textThemeLight.headline2,
-      // headline5: textThemeLight.headline5
-    );
+    return ThemeData.light().textTheme.copyWith(
+          headline1: textThemeLightCustom.headline1,
+          headline2: textThemeLightCustom.headline2,
+          overline: textThemeLightCustom.headline3,
+        );
+    // return TextTheme(
+    //   headline1: textThemeLight.headline1,
+    //   headline2: textThemeLight.headline2,
+    //   // headline5: textThemeLight.headline5
+    // );
   }
 
   ColorScheme get _appColorScheme {
     return ColorScheme(
-      primary: colorSchemeLight.sunCreate, //xx
+      primary: colorSchemeLightCustom.sunCreate, //xx
       onPrimary: Colors.black, //xx login button textcolor
-      secondary: colorSchemeLight.abduction, // xx floating button background default bunu kullanıyor
+      secondary: colorSchemeLightCustom.abduction, // xx floating button background default bunu kullanıyor
       onSecondary: Colors.white, //xx icon button icon.color
       error: Colors.red,
       onError: Colors.pink,

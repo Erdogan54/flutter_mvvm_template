@@ -8,6 +8,7 @@ import 'package:flutter_mvvm_template/core/init/notifier/provider_list.dart';
 import 'package:flutter_mvvm_template/view/authenticate/login/view/login_view.dart';
 import 'package:flutter_mvvm_template/view/authenticate/onboard/view/on_board_view.dart';
 import 'package:flutter_mvvm_template/view/authenticate/test/view/test_view.dart';
+import 'package:flutter_mvvm_template/view/home/build/feed/view/build_feed_view.dart';
 import 'package:provider/provider.dart';
 
 import 'core/init/navigation/navigation_service.dart';
@@ -47,7 +48,7 @@ class MyApp extends StatelessWidget {
       theme: Provider.of<ThemeNotifier>(context).currentTheme,
       navigatorKey: NavigationService.instance.navigatorKey,
       onGenerateRoute: NavigationRoute.instance.generateRoute,
-      home: const LoginView(),
+      home:  BuildFeedView(),
     );
   }
 }
