@@ -1,13 +1,15 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
-import 'package:flutter_mvvm_template/core/base/model/base_view_model.dart';
-import 'package:flutter_mvvm_template/core/constants/enums/locale_keys_enum.dart';
-import 'package:flutter_mvvm_template/core/constants/navigation/navigation_constants.dart';
-import 'package:flutter_mvvm_template/core/extension/string_extension.dart';
 import 'package:mobx/mobx.dart';
 
+import '../../../../core/base/model/base_view_model.dart';
+import '../../../../core/constants/enums/locale_keys_enum.dart';
+import '../../../../core/extension/string_extension.dart';
 import '../../../../core/init/lang/locale_keys.g.dart';
 import '../../../_product/_constants/image_path_svg.dart';
 import '../model/on_board_model.dart';
+
 part 'on_board_viewmodel.g.dart';
 
 class OnBoardViewModel = _OnBoardViewModelBase with _$OnBoardViewModel;
@@ -31,7 +33,7 @@ abstract class _OnBoardViewModelBase with Store, BaseViewModel {
     onBoardItems.add(OnBoardModel(
       title: LocaleKeys.onBoard_page3_title,
       decription: LocaleKeys.onBoard_page3_desc.locale,
-      imagePath: SVGImagePaths.instance.relaxing_walkSVG,
+      imagePath: SVGImagePaths.instance.relaxingWalkSVG,
     ));
   }
 

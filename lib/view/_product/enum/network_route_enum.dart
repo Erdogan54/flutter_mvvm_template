@@ -1,3 +1,4 @@
+// ignore: constant_identifier_names
 enum NetworkRoutes { LOGIN, BUILD_HOME }
 
 extension NetworkRoutesString on NetworkRoutes {

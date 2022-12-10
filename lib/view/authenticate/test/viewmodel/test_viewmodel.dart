@@ -1,20 +1,19 @@
 import 'package:easy_localization/easy_localization.dart';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_mvvm_template/core/base/model/base_view_model.dart';
-import 'package:flutter_mvvm_template/core/constants/enums/app_theme_enum.dart';
-import 'package:flutter_mvvm_template/core/constants/enums/http_request_enum.dart';
-import 'package:flutter_mvvm_template/core/init/notifier/theme_notifier.dart';
-import 'package:flutter_mvvm_template/core/init/theme/app_theme_dark.dart';
-import 'package:flutter_mvvm_template/core/init/theme/app_theme_light.dart';
 import 'package:mobx/mobx.dart';
 import 'package:provider/provider.dart';
 
+import '../../../../core/base/model/base_view_model.dart';
+import '../../../../core/constants/enums/app_theme_enum.dart';
+import '../../../../core/constants/enums/http_request_enum.dart';
 import '../../../../core/init/lang/language_manager.dart';
-import '../../../../core/init/network/network_manager.dart';
+import '../../../../core/init/notifier/theme_notifier.dart';
+import '../../../../core/init/theme/app_theme_dark.dart';
 import '../model/test_model.dart';
+
 part 'test_viewmodel.g.dart';
 
+// ignore: library_private_types_in_public_api
 class TestViewModel = _TestViewModelBase with _$TestViewModel;
 
 abstract class _TestViewModelBase with Store, BaseViewModel {

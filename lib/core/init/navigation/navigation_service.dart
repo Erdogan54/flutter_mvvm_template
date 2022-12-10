@@ -8,7 +8,7 @@ class NavigationService extends INavigationService {
   NavigationService._();
 
   GlobalKey<NavigatorState> navigatorKey = GlobalKey();
-  final removeAllOldRoutes = (Route<dynamic> route) => false;
+  removeAllOldRoutes({Route<dynamic>? route}) => false;
 
   @override
   Future<void> navigateToPage({required String path, Object? object}) async {
@@ -20,7 +20,7 @@ class NavigationService extends INavigationService {
   @override
   Future<void> navigateToPageClear({required String path, Object? object}) async {
     if (navigatorKey.currentState != null) {
-      await navigatorKey.currentState!.pushNamedAndRemoveUntil(path, removeAllOldRoutes, arguments: object);
+      await navigatorKey.currentState!.pushNamedAndRemoveUntil(path, removeAllOldRoutes(), arguments: object);
     }
   }
 }

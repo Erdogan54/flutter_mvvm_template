@@ -1,14 +1,13 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:flutter_mvvm_template/core/constants/image/image_constants.dart';
-import 'package:flutter_mvvm_template/core/init/lang/locale_keys.g.dart';
-
-import 'package:flutter_mvvm_template/view/authenticate/login/view_model/login_view_model.dart';
 
 import '../../../../core/base/view/base_view.dart';
+import '../../../../core/constants/image/image_constants.dart';
 import '../../../../core/extension/context_extension_pro.dart';
 import '../../../../core/extension/string_extension.dart';
+import '../../../../core/init/lang/locale_keys.g.dart';
+import '../view_model/login_view_model.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
@@ -77,16 +76,16 @@ class LoginView extends StatelessWidget {
       autovalidateMode: AutovalidateMode.always,
       child: Column(
         children: [
-          Spacer(flex: 6),
+          const Spacer(flex: 6),
           buildTextFormFieldEmail(context, viewModel),
-          Spacer(),
+          const Spacer(),
           buildTextFromFieldPassword(context, viewModel),
-          Spacer(),
+          const Spacer(),
           buildTextForgot(),
-          Spacer(flex: 6),
+          const Spacer(flex: 6),
           buildLoginButton(context, viewModel),
           buildWrapAccount(),
-          Spacer(flex: 1),
+          const Spacer(flex: 1),
         ],
       ),
     );
@@ -168,7 +167,7 @@ class LoginView extends StatelessWidget {
          Text(LocaleKeys.login_dontAccount.tr()),
         TextButton(
           onPressed: () {},
-          child:  Text(LocaleKeys.login_tab2.tr(), style: TextStyle(fontWeight: FontWeight.bold)),
+          child:  Text(LocaleKeys.login_tab2.tr(), style: const TextStyle(fontWeight: FontWeight.bold)),
         ),
       ],
     );
