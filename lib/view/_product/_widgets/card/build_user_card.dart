@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -25,29 +26,42 @@ class BuildUserCard extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         ListTile(
-            contentPadding: EdgeInsets.zero,
-            leading: CircleAvatar(
-              backgroundImage: NetworkImage(houseModel?.user?.image ?? ""),
-            ),
-            title: Text(houseModel?.user?.name ?? "null"),
-            subtitle: Text(houseModel?.user?.date ?? "null"),
-            trailing: Builder(builder: (context) {
-              print("build usr card : isLiked:$isLiked");
-              return IconButton(
-                  onPressed: () {
-                    onPressedLikeId(houseModel?.id);
-                  },
-                  icon: Icon(
-                    Icons.favorite,
-                    color: isLiked ? Colors.pink : Colors.grey,
-                  ));
-            })),
-        Text(
-          houseModel?.title ?? "null",
-          style: context.textTheme.headline5?.copyWith(fontWeight: FontWeight.w600),
+          contentPadding: EdgeInsets.zero,
+          leading: CircleAvatar(
+            backgroundImage: NetworkImage(houseModel?.user?.image ?? ""),
+          ),
+          title: Text(houseModel?.user?.name ?? "null"),
+          subtitle: Text(houseModel?.user?.date ?? "null"),
+          trailing: buildIconButton(),
         ),
-        Text(houseModel?.description ?? "null")
+        context.emptySizedHeightBoxLow,
+        buildWrap(context),
       ],
     );
+  }
+
+  Widget buildWrap(BuildContext context) {
+    return Wrap(
+      direction: Axis.vertical,
+      children: [
+        AutoSizeText(
+          houseModel?.title ?? "null",
+          style: context.textTheme.headline5?.copyWith(fontWeight: FontWeight.w600),
+          maxLines: 1,
+        ),
+        Text(houseModel?.description ?? "")
+      ],
+    );
+  }
+
+  IconButton buildIconButton() {
+    return IconButton(
+        onPressed: () {
+          onPressedLikeId(houseModel?.id);
+        },
+        icon: Icon(
+          Icons.favorite,
+          color: isLiked ? Colors.pink : Colors.grey,
+        ));
   }
 }

@@ -88,12 +88,7 @@ class _BuildFeedViewState extends State<BuildFeedView> with TickerProviderStateM
                 Expanded(flex: 3, child: Image.network(viewModel.houseModels?[index].image ?? "")),
                 Expanded(
                   flex: 9,
-                  child: Observer(builder: (_) {
-                    return BuildUserCard(
-                        houseModel: viewModel.houseModels?[index],
-                        isLiked: viewModel.likedItems.contains(viewModel.houseModels?[index].id),
-                        onPressedLikeId: (id) => viewModel.onLikeItemPressed(id));
-                  }),
+                  child: buildObserverUserCard(viewModel, index),
                 ),
               ],
             ),
@@ -101,6 +96,15 @@ class _BuildFeedViewState extends State<BuildFeedView> with TickerProviderStateM
         );
       },
     );
+  }
+
+  Observer buildObserverUserCard(BuildFeedViewModel viewModel, int index) {
+    return Observer(builder: (_) {
+                  return BuildUserCard(
+                      houseModel: viewModel.houseModels?[index],
+                      isLiked: viewModel.likedItems.contains(viewModel.houseModels?[index].id),
+                      onPressedLikeId: (id) => viewModel.onLikeItemPressed(id));
+                });
   }
 
   SizedBox buildSizedBoxLatestPageView(BuildContext context, BuildFeedViewModel viewModel) {
@@ -163,17 +167,21 @@ class _BuildFeedViewState extends State<BuildFeedView> with TickerProviderStateM
           top: 150,
           left: 20,
           right: 20,
-          child: Card(
-              child: Padding(
-            padding: context.paddingLow,
-            child: Observer(builder: (_) {
-              return BuildUserCard(
-                houseModel: houseModel,
-                isLiked: viewModel.likedItems.contains(houseModel?.id),
-                onPressedLikeId: (id) => viewModel.onLikeItemPressed(id),
-              );
-            }),
-          ))),
+          child: buildCardFloaty(context, houseModel, viewModel)),
     ]);
+  }
+
+  Card buildCardFloaty(BuildContext context, HouseModel? houseModel, BuildFeedViewModel viewModel) {
+    return Card(
+            child: Padding(
+          padding: context.paddingLow,
+          child: Observer(builder: (_) {
+            return BuildUserCard(
+              houseModel: houseModel,
+              isLiked: viewModel.likedItems.contains(houseModel?.id),
+              onPressedLikeId: (id) => viewModel.onLikeItemPressed(id),
+            );
+          }),
+        ));
   }
 }
