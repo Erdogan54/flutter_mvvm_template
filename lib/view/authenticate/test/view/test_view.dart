@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:flutter_mvvm_template/core/base/state/base_state.dart';
-import 'package:flutter_mvvm_template/core/base/view/base_view.dart';
-import 'package:flutter_mvvm_template/view/authenticate/test/viewmodel/test_viewmodel.dart';
+import '../../../../core/base/state/base_state.dart';
+import '../../../../core/base/view/base_view.dart';
+import '../viewmodel/test_viewmodel.dart';
 
 class TestView extends StatefulWidget {
   const TestView({super.key});

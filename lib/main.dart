@@ -1,18 +1,15 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_mvvm_template/core/constants/app/app_constants.dart';
-import 'package:flutter_mvvm_template/core/init/cache/locale_manager.dart';
-import 'package:flutter_mvvm_template/core/init/lang/language_manager.dart';
-import 'package:flutter_mvvm_template/core/init/navigation/navigation_route.dart';
-import 'package:flutter_mvvm_template/core/init/notifier/provider_list.dart';
-import 'package:flutter_mvvm_template/view/authenticate/login/view/login_view.dart';
-import 'package:flutter_mvvm_template/view/authenticate/onboard/view/on_board_view.dart';
-import 'package:flutter_mvvm_template/view/authenticate/test/view/test_view.dart';
-import 'package:flutter_mvvm_template/view/home/build/feed/view/build_feed_view.dart';
 import 'package:provider/provider.dart';
 
+import 'core/constants/app/app_constants.dart';
+import 'core/init/cache/locale_manager.dart';
+import 'core/init/lang/language_manager.dart';
+import 'core/init/navigation/navigation_route.dart';
 import 'core/init/navigation/navigation_service.dart';
+import 'core/init/notifier/provider_list.dart';
 import 'core/init/notifier/theme_notifier.dart';
+import 'view/home/build/feed/view/build_feed_view.dart';
 
 //import '../locale_keys.g.dart';
 void main() async {

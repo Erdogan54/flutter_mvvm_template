@@ -2,6 +2,9 @@ import 'dart:io';
 
 import 'package:vexana/vexana.dart';
 
+
+
+
 class VexanaManager {
   VexanaManager._();
   static VexanaManager? _instance;
@@ -9,8 +12,8 @@ class VexanaManager {
     return _instance ??= VexanaManager._();
   }
 
-  final String _iosBaseUrl = "https://localhost:3000/";
-  final String _androidBaseUrl = "https://10.0.2.2:3000/";
+  final String iosBaseUrl = "https://localhost:3000/";
+  final String androidBaseUrl = "https://10.0.2.2:3000/";
 
   INetworkManager networkManager = NetworkManager(
       isEnableLogger: true,

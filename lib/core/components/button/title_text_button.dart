@@ -1,7 +1,7 @@
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 import 'package:flutter/widgets.dart';
-import 'package:flutter_mvvm_template/core/components/button/normal_button.dart';
+
+import 'normal_button.dart';
 
 class TitleTextButton extends StatelessWidget {
   final VoidCallback onPressed;

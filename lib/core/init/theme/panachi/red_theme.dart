@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// ignore: constant_identifier_names
 const String FONT_FAMILY = "Poppins";
 
 final ThemeData redTheme = ThemeData(

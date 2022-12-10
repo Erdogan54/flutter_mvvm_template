@@ -2,13 +2,13 @@ import 'dart:io';
 
 import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter_mvvm_template/core/base/model/base_error.dart';
-import 'package:flutter_mvvm_template/core/base/model/base_model.dart';
-import 'package:flutter_mvvm_template/core/constants/enums/http_request_enum.dart';
-import 'package:flutter_mvvm_template/core/init/network/ICoreDio.dart';
-import 'package:flutter_mvvm_template/core/init/network/IResponseModel.dart';
 
+import '../../base/model/base_error.dart';
+import '../../base/model/base_model.dart';
+import '../../constants/enums/http_request_enum.dart';
 import '../../extension/network_extension.dart';
+import 'ICoreDio.dart';
+import 'IResponseModel.dart';
 
 part "../network/network_core/core_operations.dart";
 

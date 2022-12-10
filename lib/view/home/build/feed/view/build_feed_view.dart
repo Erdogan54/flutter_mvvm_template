@@ -1,17 +1,16 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:flutter_mvvm_template/view/_product/_widgets/card/build_user_card.dart';
 import 'package:kartal/kartal.dart';
 
-import 'package:flutter_mvvm_template/core/init/lang/locale_keys.g.dart';
-import 'package:flutter_mvvm_template/view/home/build/feed/view-model/build_feed_viewmodel.dart';
-
 import '../../../../../core/base/view/base_view.dart';
+import '../../../../../core/init/lang/locale_keys.g.dart';
+import '../../../../_product/_widgets/card/build_user_card.dart';
 import '../model/house_model.dart';
+import '../view-model/build_feed_viewmodel.dart';
 
 class BuildFeedView extends StatefulWidget {
-  BuildFeedView({super.key});
+  const BuildFeedView({super.key});
 
   @override
   State<BuildFeedView> createState() => _BuildFeedViewState();
@@ -156,7 +155,7 @@ class _BuildFeedViewState extends State<BuildFeedView> with TickerProviderStateM
           left: 10,
           right: 10,
           bottom: 75,
-          child: Container(
+          child: SizedBox(
             height: 100,
             child: Image.network(
               houseModel?.image ?? "",

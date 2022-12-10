@@ -1,14 +1,15 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
-import 'package:flutter_mvvm_template/core/base/model/base_view_model.dart';
-import 'package:flutter_mvvm_template/core/init/network/vexana_manager.dart';
-import 'package:flutter_mvvm_template/view/authenticate/login/service/ILoginService.dart';
-import 'package:flutter_mvvm_template/view/authenticate/login/service/login_service.dart';
 import 'package:mobx/mobx.dart';
 
-import 'package:mobx/mobx.dart';
-
+import '../../../../core/base/model/base_view_model.dart';
 import '../../../../core/constants/enums/locale_keys_enum.dart';
+import '../../../../core/init/network/vexana_manager.dart';
 import '../model/login_model.dart';
+import '../service/ILoginService.dart';
+import '../service/login_service.dart';
+
 part 'login_view_model.g.dart';
 
 class LoginViewModel = _LoginViewModelBase with _$LoginViewModel;
@@ -21,7 +22,9 @@ abstract class _LoginViewModelBase with Store, BaseViewModel {
   late TextEditingController passwordContoroller;
 
   late BuildContext baseContext;
+  @override
   void setContext(BuildContext context) => baseContext = context;
+  @override
   void init() {
     loginService = LoginService(VexanaManager.instance.networkManager);
     emailController = TextEditingController();

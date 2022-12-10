@@ -1,6 +1,7 @@
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter_mvvm_template/core/components/button/title_text_button.dart';
+
+import 'package:flutter/material.dart';
+
+import '../../../../core/components/button/title_text_button.dart';
 
 class FaceBookButton extends StatelessWidget {
   final Function({FaceBookModel? data, String? errorMessage}) onComplate;

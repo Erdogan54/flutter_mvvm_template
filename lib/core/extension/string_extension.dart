@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:email_validator/email_validator.dart';
-import 'package:flutter_mvvm_template/core/constants/app/app_constants.dart';
+
+import '../constants/app/app_constants.dart';
 
 extension StringLocalization on String {
   String get locale => this.tr();

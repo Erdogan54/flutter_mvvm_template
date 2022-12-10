@@ -1,12 +1,9 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:kartal/kartal.dart';
 
-import 'package:flutter_mvvm_template/view/home/build/feed/model/house_model.dart';
-import 'package:flutter_mvvm_template/view/home/build/feed/view-model/build_feed_viewmodel.dart';
+import '../../../home/build/feed/model/house_model.dart';
 
 class BuildUserCard extends StatelessWidget {
   final HouseModel? houseModel;
@@ -44,11 +41,8 @@ class BuildUserCard extends StatelessWidget {
     return Wrap(
       direction: Axis.vertical,
       children: [
-        AutoSizeText(
-          houseModel?.title ?? "null",
-          style: context.textTheme.headline5?.copyWith(fontWeight: FontWeight.w600),
-          maxLines: 1,
-        ),
+        AutoSizeText(houseModel?.title ?? "null",
+            style: context.textTheme.headline5?.copyWith(fontWeight: FontWeight.w600), maxLines: 1),
         Text(houseModel?.description ?? "")
       ],
     );
@@ -59,9 +53,6 @@ class BuildUserCard extends StatelessWidget {
         onPressed: () {
           onPressedLikeId(houseModel?.id);
         },
-        icon: Icon(
-          Icons.favorite,
-          color: isLiked ? Colors.pink : Colors.grey,
-        ));
+        icon: Icon(Icons.favorite, color: isLiked ? Colors.pink : Colors.grey));
   }
 }

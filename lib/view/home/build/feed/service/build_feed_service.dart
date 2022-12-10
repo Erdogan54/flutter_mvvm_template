@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-
-import 'package:flutter_mvvm_template/view/home/build/feed/model/house_model.dart';
-import 'IBuild_feed_service.dart';
 import 'package:vexana/vexana.dart';
 
 import '../../../../_product/_utilty/service_helper.dart';
 import '../../../../_product/enum/network_route_enum.dart';
+import '../model/house_model.dart';
+import 'IBuild_feed_service.dart';
 
 class BuildFeedService extends IBuildFeedService with ServiceHelper {
   BuildFeedService(INetworkManager manager, GlobalKey<ScaffoldMessengerState> scaffoldKey)

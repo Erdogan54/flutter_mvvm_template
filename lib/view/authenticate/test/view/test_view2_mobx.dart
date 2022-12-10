@@ -1,13 +1,15 @@
 
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:flutter_mvvm_template/core/components/text/locale_text.dart';
+import '../../../../core/components/text/locale_text.dart';
 
-import 'package:flutter_mvvm_template/core/constants/enums/locale_keys_enum.dart';
-import 'package:flutter_mvvm_template/core/extension/string_extension.dart';
-import 'package:flutter_mvvm_template/core/init/cache/locale_manager.dart';
+import '../../../../core/constants/enums/locale_keys_enum.dart';
+import '../../../../core/extension/string_extension.dart';
+import '../../../../core/init/cache/locale_manager.dart';
 
-import 'package:flutter_mvvm_template/core/init/lang/locale_keys.g.dart';
+import '../../../../core/init/lang/locale_keys.g.dart';
 
 import '../../../../core/extension/context_extension_pro.dart';
 import '../viewmodel/test_viewmodel.dart';
@@ -64,8 +66,8 @@ class _TestView2State extends State<TestView2> {
     final List<Widget> widgetList = [
       Text(LocaleKeys.welcome.locale),
       Text(LocaleKeys.help.locale),
-      LocaleText(value: LocaleKeys.good),
-      LocaleText(value: LocaleKeys.bad),
+      const LocaleText(value: LocaleKeys.good),
+      const LocaleText(value: LocaleKeys.bad),
       Text(viewModel.number.toString()),
     ];
     return Center(

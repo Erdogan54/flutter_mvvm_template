@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_mvvm_template/core/constants/app/app_constants.dart';
-import 'package:flutter_mvvm_template/core/extension/context_extension_pro.dart';
-import 'package:flutter_mvvm_template/core/init/theme/app_theme.dart';
-import 'package:flutter_mvvm_template/core/init/theme/light/light_theme_interface.dart';
+
+import '../../constants/app/app_constants.dart';
+import 'app_theme.dart';
+import 'light/light_theme_interface.dart';
 
 class AppThemeLight extends AppTheme with ILightTheme {
   static AppThemeLight? _instance;
@@ -24,7 +24,7 @@ class AppThemeLight extends AppTheme with ILightTheme {
       //colorScheme: ColorScheme.fromSeed(seedColor: Colors.red, primary: Colors.teal, secondary: Colors.green,),
       //useMaterial3: false,
       appBarTheme: ThemeData.light().appBarTheme.copyWith(
-          systemOverlayStyle: SystemUiOverlayStyle.dark, iconTheme: IconThemeData(color: Colors.black87, size: 25)),
+          systemOverlayStyle: SystemUiOverlayStyle.dark, iconTheme: const IconThemeData(color: Colors.black87, size: 25)),
       inputDecorationTheme: _inputDecorationTheme(),
       textTheme: _textTheme(),
       fontFamily: ApplicationConstants.FONT_FAMILY,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_mvvm_template/core/init/theme/app_theme.dart';
+
+import 'app_theme.dart';
 
 class AppThemeDark extends AppTheme {
   AppThemeDark._();

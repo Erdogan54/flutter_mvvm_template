@@ -1,8 +1,9 @@
 import 'package:flutter/widgets.dart';
-import 'package:flutter_mvvm_template/core/init/navigation/navigation_service.dart';
-import 'package:flutter_mvvm_template/core/init/notifier/theme_notifier.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
+
+import '../navigation/navigation_service.dart';
+import 'theme_notifier.dart';
 
 class ApplicationProvider with ChangeNotifier {
   static ApplicationProvider? _instance;

@@ -1,4 +1,4 @@
-import 'package:flutter_mvvm_template/core/extension/string_extension.dart';
+import '../../../core/extension/string_extension.dart';
 
 class SVGImagePaths {
   SVGImagePaths._();
@@ -7,9 +7,7 @@ class SVGImagePaths {
     return _instance ??= SVGImagePaths._();
   }
 
-  final relaxing_walkSVG = "relaxing_walk".toSVG;
+  final relaxingWalkSVG = "relaxing_walk".toSVG;
   final astronautSVG = "astronaut".toSVG;
   final chattingSVG = "chatting".toSVG;
 }
-
-
